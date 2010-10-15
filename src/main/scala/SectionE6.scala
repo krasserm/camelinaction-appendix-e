@@ -42,8 +42,8 @@ class HttpProducer(transformer: ActorRef) extends Actor with Producer {
 class HttpTransformer extends Actor {
   protected def receive = {
     case msg: Failure => self.reply(msg)
-    case msg: Message => self.reply(msg.transformBody[String] {
-      _ replaceAll ("Akka ", "AKKA ")
+    case msg: Message => self.reply(msg.transformBody { body: String =>
+      body replaceAll ("Akka ", "AKKA ")
     })
   }
 }

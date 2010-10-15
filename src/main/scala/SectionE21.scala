@@ -13,7 +13,7 @@ object SectionE21 extends Application {
   startCamelService
 
   // expect one consumer endpoint to be activated (in the background)
-  val activation = service.expectEndpointActivationCount(1)
+  val activation = mandatoryService.expectEndpointActivationCount(1)
 
   // start consumer (endpoint will be added to CamelContext asynchronously)
   val sedaConsumer = actorOf[SedaConsumer].start
@@ -22,10 +22,10 @@ object SectionE21 extends Application {
   activation.await
 
   // will print 'message = hello akka' to stdout
-  CamelContextManager.template.sendBody("seda:example", "hello akka-camel")
+  CamelContextManager.mandatoryTemplate.sendBody("seda:example", "hello akka-camel")
 
   // will stop the actor and the seda:example endpoint
-  CamelContextManager.template.sendBody("seda:example", "stop")
+  CamelContextManager.mandatoryTemplate.sendBody("seda:example", "stop")
 
   stopCamelService
 }

@@ -12,7 +12,7 @@ object SectionE3 extends Application {
 
   startCamelService
 
-  val activation = service.expectEndpointActivationCount(1)
+  val activation = mandatoryService.expectEndpointActivationCount(1)
   val httpConsumer2 = actorOf[HttpConsumer2].start
 
   activation.await
@@ -35,7 +35,8 @@ object SectionE3 extends Application {
 
   httpProducer1.stop
   httpProducer2.stop
-  httpConsumer2.stop
 
   stopCamelService
+
+  httpConsumer2.stop
 }
