@@ -1,8 +1,11 @@
 import sbt._
 
 class Project(info: ProjectInfo) extends DefaultProject(info) with AkkaProject {
-  // Temporary (remove when Camel 2.5.0 is released)
+  val akkaHome = Path.fromFile(System.getenv("AKKA_HOME"))
+  val embeddedRepo = MavenRepository("eer",  (akkaHome / "embedded-repo").asURL.toString)
   val apacheSnapshots = MavenRepository("apache-snapshots", "https://repository.apache.org/content/repositories/snapshots/")
+
+  override val sjsonModuleConfig       = ModuleConfiguration("sjson.json", embeddedRepo)
 
   val akkaCamel = akkaModule("camel")
   val akkaKernel = akkaModule("spring")

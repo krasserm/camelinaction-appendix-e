@@ -16,10 +16,11 @@ clone, build and deploy, execute the following sequence of commands.
 * cd akka
 * git checkout 458-krasserm
 * sbt update
-* sbt dist
 * sbt publish-local
 * cd akka-sbt-plugin
 * sbt publish-local
+
+Set the AKKA_HOME environment variable to the created akka directory.
 
 Build examples
 --------------

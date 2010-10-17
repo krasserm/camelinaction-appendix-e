@@ -7,18 +7,16 @@ import se.scalablesolutions.akka.camel._
  * @author Martin Krasser
  */
 object SectionE3 extends Application {
-  import CamelServiceManager._
   import SampleActors._
 
-  startCamelService
-
-  val activation = mandatoryService.expectEndpointActivationCount(1)
-  val httpConsumer2 = actorOf[HttpConsumer2].start
-
-  activation.await
-
+  val service = CamelServiceManager.startCamelService
+  val httpConsumer2 = actorOf[HttpConsumer2]
   val httpProducer1 = actorOf[HttpProducer1].start
   val httpProducer2 = actorOf[HttpProducer2].start
+
+  service.awaitEndpointActivation(1) {
+    httpConsumer2.start
+  }
 
   // Send message to httpProducer and wait for response
   httpProducer1 !! "Camel rocks" match {
@@ -33,10 +31,8 @@ object SectionE3 extends Application {
   // Wait a bit for httpProducer2 to write the response to stdout
   Thread.sleep(2000)
 
+  service.stop
+  httpConsumer2.stop
   httpProducer1.stop
   httpProducer2.stop
-
-  stopCamelService
-
-  httpConsumer2.stop
 }

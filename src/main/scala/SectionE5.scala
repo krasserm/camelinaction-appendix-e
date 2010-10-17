@@ -12,21 +12,22 @@ import se.scalablesolutions.akka.camel._
  * @author Martin Krasser
  */
 object SectionE5 extends Application {
-  import CamelServiceManager._
   import SampleActors._
 
+  val service = CamelServiceManager.startCamelService
   val producer = actorOf[HttpProducer1].start
 
-  startCamelService
-
-  CamelContextManager.mandatoryContext.addRoutes(new CustomRoute(producer.uuid))
-  CamelContextManager.mandatoryTemplate.requestBody("direct:test", "feel good", classOf[String]) match {
-    case "<received>feel good</received>" => println("communication ok")
-    case "feel bad"                       => println("communication failed")
-    case _                                => println("unexpected response")
+  for (context  <- CamelContextManager.context;
+       template <- CamelContextManager.template) {
+    context.addRoutes(new CustomRoute(producer.uuid))
+    template.requestBody("direct:test", "feel good", classOf[String]) match {
+      case "<received>feel good</received>" => println("communication ok")
+      case "feel bad"                       => println("communication failed")
+      case _                                => println("unexpected response")
+    }
   }
 
-  stopCamelService
+  service.stop
   producer.stop
 }
 

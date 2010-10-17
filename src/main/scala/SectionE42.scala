@@ -12,15 +12,16 @@ object SectionE42 extends Application {
   import SampleActors._
 
   val appctx = new ClassPathXmlApplicationContext("/sample.xml")
-  val activation = CamelServiceManager.mandatoryService.expectEndpointActivationCount(1)
-  val consumer = actorOf[HttpConsumer1].start
+  val consumer = actorOf[HttpConsumer1]
 
-  activation.await
+  for (service <- CamelServiceManager.service) service.awaitEndpointActivation(1) {
+    consumer.start
+  }
 
-  val uri = "http://localhost:8811/consumer1"
-  val result = CamelContextManager.mandatoryTemplate.requestBody(uri, "akka-spring rocks", classOf[String])
-
-  assert(result == "received akka-spring rocks")
+  for (template <- CamelContextManager.template) {
+    val result = template.requestBody("http://localhost:8811/consumer1", "akka-spring rocks", classOf[String])
+    assert(result == "received akka-spring rocks")
+  }
 
   appctx.destroy
   consumer.stop
