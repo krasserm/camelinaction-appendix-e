@@ -14,7 +14,6 @@ clone, build and deploy, execute the following sequence of commands.
 
 * git clone git://github.com/jboner/akka.git
 * cd akka
-* git checkout 458-krasserm
 * sbt update
 * sbt publish-local
 * cd akka-sbt-plugin
