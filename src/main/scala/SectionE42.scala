@@ -2,8 +2,8 @@ package camelinaction
 
 import org.springframework.context.support.ClassPathXmlApplicationContext
 
-import se.scalablesolutions.akka.actor.Actor._
-import se.scalablesolutions.akka.camel._
+import akka.actor.Actor._
+import akka.camel._
 
 /**
  * @author Martin Krasser

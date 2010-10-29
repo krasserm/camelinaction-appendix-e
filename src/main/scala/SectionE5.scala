@@ -4,9 +4,9 @@ import java.net.ConnectException
 
 import org.apache.camel.builder.RouteBuilder
 
-import se.scalablesolutions.akka.actor.Actor._
-import se.scalablesolutions.akka.actor.Uuid
-import se.scalablesolutions.akka.camel._
+import akka.actor.Actor._
+import akka.actor.Uuid
+import akka.camel._
 
 /**
  * @author Martin Krasser
