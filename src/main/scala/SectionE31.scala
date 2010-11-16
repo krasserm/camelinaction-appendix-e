@@ -6,7 +6,7 @@ import akka.camel._
 /**
  * @author Martin Krasser
  */
-object SectionE21 extends Application {
+object SectionE31 extends Application {
   import SampleActors._
 
   val service = CamelServiceManager.startCamelService

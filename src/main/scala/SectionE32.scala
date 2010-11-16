@@ -9,7 +9,7 @@ import akka.camel._
 /**
  * @author Martin Krasser
  */
-object SectionE22 extends Application {
+object SectionE32 extends Application {
   import SampleActors._
 
   val service = CamelServiceManager.startCamelService
