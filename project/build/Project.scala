@@ -1,10 +1,7 @@
 import sbt._
 
 class Project(info: ProjectInfo) extends DefaultProject(info) with AkkaProject {
-  val akkaHome = Path.fromFile(System.getenv("AKKA_HOME"))
-  val embeddedRepo = MavenRepository("eer",  (akkaHome / "embedded-repo").asURL.toString)
-
-  override val sjsonModuleConfig = ModuleConfiguration("sjson.json", embeddedRepo)
+  val AkkaRepo = "Akka Repository" at "http://scalablesolutions.se/akka/repository"
 
   val akkaCamel = akkaModule("camel")
   val akkaKernel = akkaModule("spring")

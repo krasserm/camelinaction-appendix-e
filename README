@@ -1,25 +1,15 @@
+Introduction
+------------
+
+This sub-project implements the code examples of Camel in Action - Appendix E.
+The examples are based on Akka 1.0-RC1 and Camel 2.5.0.
+
 Prerequisites
 -------------
 
 Building and running the examples requires SBT [1], a simple build tool
 for Scala projects. Installation instructions can be found at [2]. After
 installation, you should have the 'sbt' command available.
-
-Build Akka
-----------
-
-At the current stage of development, the examples require the latest
-development snapshot of Akka (1.0-SNAPSHOT), branch 458-krasserm. To
-clone, build and deploy, execute the following sequence of commands.
-
-* git clone git://github.com/jboner/akka.git
-* cd akka
-* sbt update
-* sbt publish-local
-* cd akka-sbt-plugin
-* sbt publish-local
-
-Set the AKKA_HOME environment variable to the created akka directory.
 
 Build examples
 --------------
