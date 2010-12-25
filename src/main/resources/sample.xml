@@ -4,9 +4,9 @@
        xmlns:camel="http://camel.apache.org/schema/spring"
        xsi:schemaLocation="
 http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.akkasource.org/schema/akka
-http://scalablesolutions.se/akka/akka-1.0-RC1.xsd
+http://scalablesolutions.se/akka/akka-1.0-RC2.xsd
 http://camel.apache.org/schema/spring
 http://camel.apache.org/schema/spring/camel-spring.xsd">
 
