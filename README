@@ -3,7 +3,7 @@ Introduction
 
 This sub-project implements the code examples of Camel in Action - Appendix E
 (http://www.manning.com/ibsen/appEsample.pdf). The examples are based on Akka
-1.0-RC2 and Camel 2.5.0.
+1.0-RC3 and Camel 2.5.0.
 
 Prerequisites
 -------------
