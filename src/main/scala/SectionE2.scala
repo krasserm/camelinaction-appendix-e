@@ -5,7 +5,7 @@ import akka.actor.Actor._
 /**
  * @author Martin Krasser
  */
-object SectionE2 extends Application {
+object SectionE2 extends App {
   import SampleActors._
 
   val actor = actorOf[SimpleActor].start

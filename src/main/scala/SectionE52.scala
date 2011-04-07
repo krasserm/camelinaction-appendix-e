@@ -8,7 +8,7 @@ import akka.camel._
 /**
  * @author Martin Krasser
  */
-object SectionE52 extends Application {
+object SectionE52 extends App {
   import SampleActors._
 
   val appctx = new ClassPathXmlApplicationContext("/sample.xml")

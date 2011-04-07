@@ -9,7 +9,7 @@ import akka.camel._
 /**
  * @author Martin Krasser
  */
-object SectionE7 extends Application {
+object SectionE7 extends App {
   CamelServiceManager.startCamelService
 
   val httpTransformer = actorOf(new HttpTransformer).start
