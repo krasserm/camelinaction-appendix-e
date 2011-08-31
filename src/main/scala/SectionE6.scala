@@ -28,7 +28,7 @@ object SectionE6 extends App {
   }
 
   service.stop
-  producer.stop
+  registry.shutdownAll
 }
 
 class CustomRoute(uuid: Uuid) extends RouteBuilder {

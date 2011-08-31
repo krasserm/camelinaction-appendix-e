@@ -38,6 +38,5 @@ object SectionE32 extends App {
   }
 
   service.stop
-  httpConsumer1.stop
-  httpConsumer2.stop
+  registry.shutdownAll
 }

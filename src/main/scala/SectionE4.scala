@@ -19,10 +19,10 @@ object SectionE4 extends App {
   }
 
   // Send message to httpProducer and wait for response
-  httpProducer1 !! "Camel rocks" match {
-    case Some(m: Message) => println("response = %s" format m.bodyAs[String])
-    case Some(f: Failure) => println("failure = %s" format f.cause.getMessage)
-    case None             => println("timeout")
+  (httpProducer1 ? "Camel rocks").get match {
+    case m: Message => println("response = %s" format m.bodyAs[String])
+    case f: Failure => println("failure = %s" format f.cause.getMessage)
+    case None      => println("timeout")
   }
 
   // Send message to httpProducer2 without waiting for a response
@@ -32,7 +32,5 @@ object SectionE4 extends App {
   Thread.sleep(2000)
 
   service.stop
-  httpConsumer2.stop
-  httpProducer1.stop
-  httpProducer2.stop
+  registry.shutdownAll
 }

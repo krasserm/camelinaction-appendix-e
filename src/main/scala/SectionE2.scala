@@ -15,4 +15,6 @@ object SectionE2 extends App {
 
   // will stop the actor
   actor ! "stop"
+  
+  registry.shutdownAll
 }

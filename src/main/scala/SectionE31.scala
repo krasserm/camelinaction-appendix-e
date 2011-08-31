@@ -27,4 +27,5 @@ object SectionE31 extends App {
   }
 
   service.stop
+  registry.shutdownAll
 }

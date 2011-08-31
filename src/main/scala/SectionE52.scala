@@ -24,5 +24,5 @@ object SectionE52 extends App {
   }
 
   appctx.destroy
-  consumer.stop
+  registry.shutdownAll
 }
