@@ -3,12 +3,12 @@ Introduction
 
 This sub-project implements the code examples of Camel in Action - Appendix E
 (http://www.manning.com/ibsen/appEsample.pdf). The examples are based on Akka
-1.2, Camel 2.8.1 and Scala 2.9.1.
+1.3, Camel 2.9.0 and Scala 2.9.1.
 
 Prerequisites
 -------------
 
-Building and running the examples requires SBT [1], a simple build tool
+Building and running the examples requires SBT 0.7 [1], a simple build tool
 for Scala projects. Installation instructions can be found at [2]. After
 installation, you should have the 'sbt' command available.
 
